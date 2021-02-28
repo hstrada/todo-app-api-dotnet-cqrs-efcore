@@ -1,3 +1,4 @@
+using System;
 using Todo.Domain.Entities;
 
 namespace Todo.Domain.Repositories
@@ -8,5 +9,6 @@ namespace Todo.Domain.Repositories
         // definicao do nosso contrato, abstracao do repositorio, como ele vai salvar, é problema de infra
         void Create(TodoItem todo);
         void Update(TodoItem todo);
+        TodoItem GetById(Guid id, string user);
     }
 }
