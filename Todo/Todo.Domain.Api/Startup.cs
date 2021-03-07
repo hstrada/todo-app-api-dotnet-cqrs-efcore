@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -14,6 +15,9 @@ namespace Todo.Domain.Api
 {
     public class Startup
     {
+
+        private string _firebaseKey = null;
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -24,6 +28,8 @@ namespace Todo.Domain.Api
         public void ConfigureServices(IServiceCollection services)
         {
 
+            _firebaseKey = Configuration["firebaseurl"];
+            
             services.AddControllers();
 
             // services.AddDbContext<DataContext>(opt => opt.UseInMemoryDatabase("Database"));
@@ -31,6 +37,22 @@ namespace Todo.Domain.Api
 
             services.AddTransient<ITodoRepository, TodoRepository>();
             services.AddTransient<TodoHandler, TodoHandler>();
+
+            // esquema de autenticação
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+            // qual servidor da google para validar os tokens
+            .AddJwtBearer(options =>
+            {
+                options.Authority = $"https://securetoken.google.com/{_firebaseKey}";
+                options.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
+                {
+                    ValidateIssuer = true,
+                    ValidIssuer = $"https://securetoken.google.com/{_firebaseKey}",
+                    ValidateAudience = true,
+                    ValidAudience = _firebaseKey,
+                    ValidateLifetime = true
+                };
+            });
 
             services.AddSwaggerGen(c =>
             {

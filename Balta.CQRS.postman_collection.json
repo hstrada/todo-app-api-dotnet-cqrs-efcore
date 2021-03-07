@@ -1,0 +1,250 @@
+{
+	"info": {
+		"_postman_id": "c9a60910-e4fe-4114-b6a7-12cf8ee212d7",
+		"name": "Balta.CQRS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Todos",
+			"item": [
+				{
+					"name": "Todos.GetAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/v1/todos",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"todos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Todos.GetAllDone",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/v1/todos/done",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"todos",
+								"done"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Todos.GetAllUndone",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/v1/todos/undone",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"todos",
+								"undone"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Todos.GetAllUndoneToday",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/v1/todos/undone/today",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"todos",
+								"undone",
+								"today"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Todos.GetAllUndoneTomorrow",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/v1/todos/undone/tomorrow",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"todos",
+								"undone",
+								"tomorrow"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Todos.Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Tarefa A\",\r\n    \"date\": \"2021-04-08\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/v1/todos",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"todos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Todos.Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Tarefa H\",\r\n    \"id\": \"ed1ac3f8-165a-4007-9ac9-e65d3ca79b0f\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/v1/todos",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"todos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Todos.UpdateMarkAsDone",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"ed1ac3f8-165a-4007-9ac9-e65d3ca79b0f\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/v1/todos/mark-as-done",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"todos",
+								"mark-as-done"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Todos.UpdateMarkAsUndone",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"ed1ac3f8-165a-4007-9ac9-e65d3ca79b0f\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/v1/todos/mark-as-undone",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"todos",
+								"mark-as-undone"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	]
+}
