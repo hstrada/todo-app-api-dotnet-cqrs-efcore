@@ -35,6 +35,7 @@ dotnet user-secrets set "firebaseurl" "valor_do_firebase"
 <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
 <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="5.0.3" />
 <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.3">
+<PackageReference Include="flunt" Version="1.0.4" />
 ```
 
 ## Pontos interessantes
