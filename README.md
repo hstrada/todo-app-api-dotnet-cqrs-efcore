@@ -75,3 +75,9 @@ cd .\Todo.Domain.Infra\ && dotnet ef migrations add InitialCreate --startup-proj
 ```bash
 dotnet ef database update --startup-project ..\Todo.Domain.Api\
 ```
+
+## FrontEnd
+
+Se você quiser rodar e executar o projeto frontend para ter uma melhor visibilidade da implementação, você pode utilizar os recursos do curso do balta.io de angular.
+
+https://github.com/balta-io/7197
